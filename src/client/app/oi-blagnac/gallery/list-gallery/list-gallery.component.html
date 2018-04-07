@@ -1,0 +1,41 @@
+<div class="main-content">
+  <div class="panel-content">
+    <div class="expo">
+      <h5 align="center">Type de galerie</h5>
+      <div class="d-flex flex-column">
+        <ul class="list-group d-flex flex-row">
+          <li class="list-group-item " [class.active]="type === typeGallery" *ngFor="let type of typesMenu">
+            <a role="listitem" [routerLink]="['/list-gallery/gallerie']" [queryParams]="{ 'page':1,'typeGallery':type, 'id': 0 }"
+              routerLinkActive="router-link-active" routerLinkActive="active">
+              {{type}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h5 align="center">Thème de la galerie</h5> 
+      <div class="d-flex flex-column">
+        <ul class="list-group d-flex flex-row">
+          <li class="list-group-item " [class.active]="gallery.numero === numeroGallery" *ngFor="let gallery of (galeriesMenu | async)?.slice(indiceGalleryDeb, indiceGalleryFin)">
+            <a role="listitem" [routerLink]="['/list-gallery/gallerie']" [queryParams]="{ 'page':1,'typeGallery':gallery.type, 'id': gallery.numero }"
+              routerLinkActive="router-link-active" routerLinkActive="active">
+              <span class="annee">[{{gallery.annee}}]</span> - {{gallery.nom}}</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="indiceGalleryDeb===0">
+          <a class="page-link" (click)="previousGallery()" >&lt;</a>
+        </li>
+        <li class="page-item disabled ">
+          <a class="page-link noLink" tabindex="-1">page : {{pageGalleryCurrent}} sur {{nbPageGallery}}</a>
+        </li>
+        <li class="page-item" [class.disabled]="pageGalleryCurrent === nbPageGallery">
+          <a class="page-link" (click)="nextGallery()" >&gt;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel-content-gallery">
+    <app-one-gallery [galleryCurrent]="galleryCurrent" [pageCurrente]="pageCurrente" *ngIf="galleryCurrent"></app-one-gallery>
+  </div>
+</div>

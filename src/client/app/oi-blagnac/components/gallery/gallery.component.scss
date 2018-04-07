@@ -1,0 +1,50 @@
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  figure {
+    text-align: center;
+    width: 30%;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 10px;
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 40vh;
+      max-height: 20vw;
+      width: 100%;
+      border-radius: 10px;
+    }
+    
+  }
+  .afficherModal {
+    display: block;
+  }
+  .popin {
+    z-index: 3; 
+    position: fixed;
+    bottom:0;
+    right: 0;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background-color: rgba(100, 100, 100, 0.7);
+    .dialog {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      img {
+        max-width: 90vw;
+        max-height: 90vh;
+      }
+      position: relative;
+    }
+    
+  }
+
+}

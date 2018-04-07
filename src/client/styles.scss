@@ -1,0 +1,37 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~font-awesome/css/font-awesome.css";
+@import "variables.scss";
+body {
+    margin: 0;
+    background-color: #111111;
+}
+
+.important {
+    font-weight: 500;
+    color: #bcbcbc;
+}   
+
+body {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #222222;
+    color: #a0a0a0;
+    margin:50px auto;
+    padding : 50px;
+    max-width:900px;
+    h1 {
+        color:  #03859c; 
+        border-bottom: #03859c 1px solid;
+        margin-bottom: 50px;
+    }
+ 
+}   

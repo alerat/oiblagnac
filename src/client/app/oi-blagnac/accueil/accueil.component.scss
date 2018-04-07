@@ -1,0 +1,21 @@
+
+  
+ngb-carousel {
+    width: 100%;
+   
+    min-height: 70vh;
+    &:focus {
+        outline: 0px;
+    }
+    img {
+        max-width: 70vw;
+        height: 60vh;
+
+    }
+    .footer{
+        margin-top: 10px;
+    }
+
+    margin : 20px 0;
+    color: #03859c;
+}

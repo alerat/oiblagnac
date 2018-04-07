@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Javascript",
+    "content": {
+      "chargeH": 8,
+      "kind": "code"
+    }
+  },
+  {
+    "name": "AngularJS",
+    "content": {
+      "chargeH": 8,
+      "kind": "code"
+    }
+  },
+  {
+    "name": "TypeScript",
+    "content": {
+      "chargeH": 0,
+      "kind": "code"
+    }
+  },
+  {
+    "name": "Ergonomie",
+    "content": {
+      "chargeH": 8,
+      "kind": "book"
+    }
+  },
+  {
+    "name": "NodeJS",
+    "content": {
+      "chargeH": 40,
+      "kind": "code"
+    }
+  },
+  {
+    "name": "Modélisation NoSQL",
+    "content": {
+      "chargeH": 8,
+      "kind": "book"
+    }
+  },
+  {
+    "name": "MongoDB",
+    "content": {
+      "chargeH": 28,
+      "kind": "database"
+    }
+  }
+]

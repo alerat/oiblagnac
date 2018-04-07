@@ -1,0 +1,42 @@
+<div class="menu-principal">
+  <div class="banner">
+    <span class="banner-elem">&nbsp;</span>
+    <img class="banner-elem" src="./assets/Banniere.jpg"/>
+    <div class="banner-elem">
+      <a class="banner-link" href="javascript:void(0)" (click)="login()" *ngIf="!isLoggedIn()">
+        <i class="fa fa-sign-in account-login"></i>&nbsp;Se connecter
+      </a>
+      <a class="banner-link" href="javascript:void(0)" (click)="logout()" *ngIf="isLoggedIn()">
+        <i class="fa fa-sign-out account-login"></i>&nbsp;Se déconnecter
+      </a>
+    </div>
+  </div>
+  <ul class="d-flex flex-row justify-content-space-around flex-wrap " role="list">
+    <li class="d-flex">
+      <a class="d-flex" role="listitem" routerLink="/home" routerLinkActive="active">Accueil</a>
+    </li>
+    <li class="d-flex">
+      <a class="d-flex" role="listitem" routerLink="/videos" routerLinkActive="active">Vidéos</a>
+    </li>
+    <li class="d-flex">
+      <a class="d-flex" role="listitem" routerLink="/formations" routerLinkActive="active">Formations</a>
+    </li>
+    <li class="d-flex">
+      <a class="d-flex" role="listitem" routerLink="/sorties" routerLinkActive="active">Sorties</a>
+    </li>
+    <li class="d-flex">
+      <a class="d-flex" role="listitem" [routerLink]="['/list-gallery/gallerie']"
+         [queryParams]="{ page: 1, id: 0, type: 'hall' }" routerLinkActive="router-link-active"
+         routerLinkActive="active">Expositions Hall et Cafétéria</a>
+    </li>
+    <li class="d-flex">
+      <a class="d-flex" role="listitem" routerLink="/telechargements" routerLinkActive="active">Téléchargements</a>
+    </li>
+    <li class="d-flex">
+      <a class="d-flex" role="listitem" routerLink="/liens" routerLinkActive="active">Liens</a>
+    </li>
+    <!--<li class="d-flex" *ngIf="isLoggedIn()">
+      <a class="d-flex" role="listitem" routerLink="/secured/compte" routerLinkActive="active">Mon Compte</a>
+    </li>-->
+  </ul>
+</div>

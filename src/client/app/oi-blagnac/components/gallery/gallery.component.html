@@ -1,0 +1,25 @@
+<!--div class="container">
+  <div class="gallery card" style="width: 18rem;" *ngFor="let photo of photos">
+    <img class="card-img-top" [src]="photo.image" alt="{{photo.titre + ' de  '+ photo.footer}}">
+    <div class="card-body">
+      <h5 class="card-title">{{photo.titre}}</h5>
+      <p class="card-text">{{photo.footer}}</p>
+    </div>
+  </div>
+</div-->
+
+<div class="gallery">
+  <figure *ngFor="let photo of gallery.photos? gallery.photos.slice(indiceDeb, indiceFin) : []" (click)="choosePhoto(photo)">
+    <div class="image">
+      <img [src]="photo.image" alt="" />
+    </div>
+    <figcaption><strong>{{photo.titre}}</strong>&nbsp;-&nbsp;{{photo.footer}}</figcaption>
+  </figure>
+
+
+  <div [class.afficherModal]="currentPhoto" (click)="cacherModal()" class="popin" tabindex="-1"  *ngIf="currentPhoto">
+    <div class="dialog" role="document">
+        <img [src]="currentPhoto.image" alt="" />
+    </div>
+  </div>
+</div>

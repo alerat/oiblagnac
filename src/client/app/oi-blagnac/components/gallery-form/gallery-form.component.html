@@ -1,0 +1,113 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Création ou modification de galerie</h1>
+    <form (ngSubmit)="onSubmit()" #galleryForm="ngForm">
+      <div class="form-group">
+        <label for="numero">Numero :</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="numero"
+            required pattern="[0-9]*" [(ngModel)]="model.numero" name="numero"
+            #numero="ngModel"
+            placeholder="numero de la gallerie" aria-label="numero de la gallerie" 
+            aria-describedby="basic-addon2" (keyup)="getGallery()" (change)="getGallery()">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="getLastGallery()">
+              Nouveau numéro de galerie
+            </button>
+          </div>
+        </div>
+        <div [hidden]="numero.valid || numero.pristine"
+             class="alert alert-danger">
+            Merci de saisir un numéro valide.
+        </div>
+      </div> 
+      <div class="form-group">
+        <label for="nom">Nom de la gallerie</label>
+        <input type="text" class="form-control" id="nom"
+               required
+               [(ngModel)]="model.nom" name="nom"
+               #nom="ngModel" placeholder="nom de la gallerie">
+        <div [hidden]="nom.valid ||nom.pristine"
+             class="alert alert-danger">
+             Nom est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="annee">Année</label>
+        <select class="form-control" id="annee"
+                required
+                [(ngModel)]="model.annee" name="annee"
+                #annee="ngModel" >
+          <option *ngFor="let year of listeAnnees.reverse()" [value]="year">{{year}}</option>
+        </select>
+        <div [hidden]="annee.valid || annee.pristine" class="alert alert-danger">
+         l'année est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="type1">Type de gallerie</label>
+        <div class="form-check">
+          <input class="form-check-input" [(ngModel)]="model.type" type="radio" name="type" id="type1"  value="hall" checked>
+          <label class="form-check-label" for="type1">
+              hall
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" [(ngModel)]="model.type"  type="radio" name="type" id="type2" value="cafeteria">
+          <label class="form-check-label" for="type2">
+              cafeteria
+          </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="model.type"  type="radio" name="type" id="type3" value="photo_du_mois">
+            <label class="form-check-label" for="type3">
+                photo du mois
+            </label>
+          </div>
+        </div>
+      <button type="submit" class="btn btn-success" [disabled]="!galleryForm.form.valid">
+        {{getNomButtonSubmit()}}</button>
+
+       
+    </form>
+  </div>
+  <!--form (ngSubmit)="onSubmitFile()" #fileForm="ngForm">
+  <div class="custom-file form-group">
+    <input type="file"  class="custom-file-input form-control" id="photo" name="photo"
+    #file (change)="onChangeFile(file.files)">
+    <label class="custom-file-label" for="photo"> Choose file</label>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!fileForm.form.valid">
+    save</button>
+</form-->
+
+
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Numero de la galerie: </div>
+      <div class="col-xs-9  pull-left">{{ model.numero }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Nom de la galerie: </div>
+      <div class="col-xs-9 pull-left">{{ model.nom }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Année de la galerie: </div>
+        <div class="col-xs-9 pull-left">{{ model.annee }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">type de galerie: </div>
+      <div class="col-xs-9 pull-left">{{ model.type }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Nombre de photo de galerie: </div>
+        <div class="col-xs-9 pull-left">{{ model.photos?.length }}</div>
+      </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+  
+  {{save | json }}
+</div>

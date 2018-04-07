@@ -1,0 +1,13 @@
+applications:
+- path: .
+  memory: 2048M
+  instances: 1
+  domain: mybluemix.net
+  name: ngx-socle
+  command: ts-node src/server/app.ts
+  host: ngx-socle
+  disk_quota: 512M
+env:
+# Permet de télécharger les devDependencies
+  NPM_CONFIG_PRODUCTION: false
+  PROXY_ENABLED: 'false'

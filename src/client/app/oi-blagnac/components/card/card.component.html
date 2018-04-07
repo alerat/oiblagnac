@@ -1,0 +1,11 @@
+
+<div class="card">
+  <iframe class="card-img-top" id="ytplayer" type="text/html" 
+  [src]="videoURL(actualite.video)"
+  frameborder="0" allowfullscreen></iframe>
+  <div class="card-body">
+    <h2 class="card-title" *ngIf="actualite.titre">{{actualite.titre}}</h2>
+    <p class="card-text" *ngIf="actualite.content">{{actualite.content}}</p>
+  </div> <div class="card-body card-footer" *ngIf="actualite.footer">{{actualite.footer}}
+  </div>
+</div>

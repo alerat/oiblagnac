@@ -1,0 +1,69 @@
+h1 {
+    color:  #03859c; 
+    border-bottom: #03859c 1px solid;
+    margin-bottom: 20px;
+}
+h5 {
+    margin-bottom: 50px;
+}
+app-one-gallery {
+    width: 100%;
+}
+
+ul { 
+    margin : 50px auto;
+    &.pagination{
+        li {
+            &.page-item {
+                a {
+                   
+                    &.page-link{
+                        font-weight: 500;
+                        color: white;
+                        background-color:  #03859c;
+                        border: #03859c 1px solid;
+                        &:hover {
+                            text-decoration: none;
+                            color: #FF7300;
+                        }
+                    }
+                }
+            }
+            &.disabled {
+                a {
+                    &.page-link{
+                        color: #a0a0a0; 
+                        background-color:  #464646;
+                        border: #03859c 1px solid;
+                        &.noLink{
+                            color: white; 
+                            background-color:  #464646;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.input-group {
+
+    width: auto;
+    height: 40px;
+    .custom-select { 
+        font-weight: 500;
+        color: white;
+        background-color:  #03859c;
+        border: #03859c 1px solid;
+        height: 40px;
+        width: 50px;
+    }
+    .input-group-prepend {
+        height: 40px;
+        .input-group-text { 
+           color: #a0a0a0; 
+            background-color:  #464646;
+            border: #03859c 1px solid;
+        }
+    }
+}

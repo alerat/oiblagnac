@@ -1,0 +1,71 @@
+<h1>{{galleryCurrent.nom}}</h1> 
+<div class="d-flex f-row justify-content-between">
+  <h5>Exposition {{galleryCurrent.type}} - {{galleryCurrent.annee}}</h5>
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Affichage par page</label>
+        </div>
+      <select [(ngModel)]="nombreElementParPage" name="nombreElementParPage" 
+        class="custom-select" id="inputGroupSelect01" (change)="calculElement()">
+        <option value="3">3</option>
+        <option value="6">6</option>
+        <option value="9" selected>9</option>
+        <option value="12">12</option>
+        <option value="15">15</option>
+        <option value="18">18</option>
+        <option value="2000">tous</option>
+      </select>
+  </div>
+</div>
+<app-gallery [gallery]="galleryCurrent" [indiceDeb]="indiceDeb" 
+            [indiceFin]="indiceFin" *ngIf="galleryCurrent" ></app-gallery>
+<ul class="pagination justify-content-center">
+  <li class="page-item" [class.disabled]="indiceDeb===0">
+    <a class="page-link" (click)="previousPage()" [routerLink]="['/list-gallery/gallerie']" 
+    [queryParams]="{ 'page': (+pageCurrente - 1),'typeGallery':galleryCurrent.type, 'id': galleryCurrent.numero }">precedente</a>
+  </li>
+  <li class="page-item disabled ">
+    <a class="page-link noLink" tabindex="-1">page : {{pageCurrente}} sur {{nbPage}}</a>
+  </li>
+  <li class="page-item" [class.disabled]="indiceFin >= nbPhotos">
+    <a class="page-link" (click)="nextPage()" [routerLink]="['/list-gallery/gallerie']" 
+    [queryParams]="{ 'page': (+pageCurrente + 1),'typeGallery':galleryCurrent.type, 'id': galleryCurrent.numero }">suivante</a>
+  </li>
+</ul>
+<!--form (ngSubmit)="onSubmitFile()" #fileForm="ngForm">
+    <h5 (click)="afficherBloc()">Upload nouvelle photo</h5>
+    {{saveFile}}
+    <div *ngIf="afficherUpload">
+    <div class="form-group" >
+        <label for="titre">titre de la photo</label>
+        <input type="text" class="form-control" id="titre"
+               required
+               [(ngModel)]="model.titre" name="titre"
+               #titre="ngModel" placeholder="titre de la photo">
+        <div [hidden]="titre.valid ||titre.pristine"
+             class="alert alert-danger">
+             titre est obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="commentaire">commentaire</label>
+          <input type="text" class="form-control" id="commentaire"
+                 required
+                 [(ngModel)]="model.commentaire" name="commentaire"
+                 #commentaire="ngModel" placeholder="commentaire de la photo">
+          <div [hidden]="commentaire.valid ||commentaire.pristine"
+               class="alert alert-danger">
+               commentaire est obligatoire
+          </div>
+        </div>
+  <div class="custom-file form-group">
+    <input type="file"  class="custom-file-input form-control" id="photo" name="photo"
+    #file (change)="onChangeFile(file.files)">
+    <label class="custom-file-label" for="photo">Choose file</label>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!fileForm.form.valid">
+    save</button>
+
+    </div>
+
+</form-->

@@ -1,0 +1,53 @@
+<div class=" d-flex flex-column align-item-stretch panel-content text-justify">  
+      <h1>Présentation du club</h1> 
+      <ngb-carousel class="d-flex " data-interval="3000" *ngIf="photoMensuelles">
+          <ng-template class="d-flex align-item-stretch" ngbSlide *ngFor="let photoM of photoMensuelles">
+              <div class="d-flex flex-column">
+                <h5 class="d-flex justify-content-center" >{{photoM.titre}}</h5>
+                <img class="d-flex align-self-center" [src]="photoM.image">
+               <span class="footer d-flex justify-content-center">{{photoM.footer}}</span>
+              </div>
+          </ng-template>
+        </ngb-carousel>
+      <p>
+        Le photo club est né le 21 Janvier 1982 sous le nom de "Photo Ciné Club des PTT de Blagnac". </p>
+      <p> 
+        Le photo club s'est rapidement affilié à <span class="important">l'Union Nationale des Photo Ciné Clubs</span>.
+        Lors de l'Assemblée Générale du 10 Mars 1990, cette Union Nationale des Photo Ciné Clubs a été dénommée : <span class="important">OBJECTIF IMAGE</span>, le club s'appelle donc depuis Objectif Image Blagnac.
+        Sous l'impulsion de <span class="important">Bernard Verdier</span>, président fondateur du photo club, le club de Blagnac s'est distingué notamment
+        en organisant le forum de l'image, Bernard est d'ailleurs devenu le vice Président d'Objectif Image.
+      </p>
+      <p>
+        A la suite de l'assemblée générale du 25 mars 2011, Bernard est devenu Président délégué d'Objectif Image.
+        Depuis le 1er mars 2011 une nouvelle équipe a pris l'initiative de relancer des activités locales comme les formations,
+        sorties photo, exposition des photos des membres.
+      </p>
+      <p>
+        La vocation du club est de contribuer à l'initiation et au perfectionnement des adhérents dans une ambiance de bonne
+        humeur et de partage des connaissances de chacun.
+        C'est pourquoi le club est ouvert à tous, du débutant (ce que tout le monde a été) jusqu'aux spécialistes d'une technique
+        particulière.    
+      </p>
+        <p>
+        Nos moyens proviennent des subventions allouées par Objectif Image, des prestations effectiuées par le bureau pour les
+        CE, et bien sur de vos cotisations.
+
+        Ces moyens permettent de financer les expositions et de compléter l'équipement matériel et logiciel qui permet de faire
+        les cours que nous organisons.
+      </p>
+      <div>
+        <span class="important">Le matériel patrimoine d'Objectif Image Blagnac se compose : </span><br>
+        <ul>
+          <li *ngFor="let materiel of materiels">{{materiel.nom}} <span [class.text-danger]="!materiel.dispo" [class.text-success]="materiel.dispo" [innerHTML]="materiel.dispo ?'(disponible)':'(non-disponible)' "></span></li>
+        </ul>
+        <span class="important">Ce site permet, en complément des mails : </span><br>
+        <ul>
+          <li>de vous informer des dates et lieux des permanences que nous assurons</li>
+          <li>de vous informer des activités proposées par le club</li>
+          <li>de faire le lien entre vous le bureau</li>
+        </ul>
+      </div>
+      <p> <br>
+        N'hésitez pas à le consulter régulièrement et nous faire part de vos souhaits d'évolution ! <br> <br> Bonnes photos à toutes et tous!
+      </p>
+    </div>
