@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
-import {WebAuth} from 'auth0-js';
+import {Auth0DecodedHash, Auth0UserProfile, WebAuth} from 'auth0-js';
 import {environment} from '../../../environments/environment';
 
 
@@ -11,6 +11,7 @@ export class AuthService {
 
   private loggedIn = false;
   private auth0: WebAuth;
+  private userProfile: Auth0UserProfile;
 
   constructor() {
     this.auth0 = new WebAuth(environment.auth0Config.login);
@@ -22,6 +23,10 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+  }
+
+  private fillUserInfo(idTokenPayload: Auth0UserProfile): void {
+    this.userProfile = idTokenPayload;
   }
 
   public login(): void {
@@ -36,10 +41,11 @@ export class AuthService {
   }
 
   public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
+    this.auth0.parseHash((err, authResult: Auth0DecodedHash) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         AuthService.setSession(authResult);
+        this.fillUserInfo(authResult.idTokenPayload);
         this.loggedIn = true;
       } else if (err) {
         console.log(err);
@@ -51,6 +57,8 @@ export class AuthService {
     return this.loggedIn;
   }
 
-
+  public getUserProfile(): Auth0UserProfile {
+    return this.userProfile;
+  }
 }
 

@@ -26,5 +26,13 @@ export class MenuComponent implements OnInit {
     this.authService.logout();
   }
 
+  userInfo(): string {
+    const user = this.authService.getUserProfile();
+    return user.nickname;
+  }
 
+  picture(): string {
+    const user = this.authService.getUserProfile();
+    return user.picture;
+  }
 }

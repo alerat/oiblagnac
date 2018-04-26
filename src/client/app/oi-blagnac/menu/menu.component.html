@@ -6,11 +6,15 @@
       <a class="banner-link" href="javascript:void(0)" (click)="login()" *ngIf="!isLoggedIn()">
         <i class="fa fa-sign-in account-login"></i>&nbsp;Se connecter
       </a>
-      <a class="banner-link" href="javascript:void(0)" (click)="logout()" *ngIf="isLoggedIn()">
-        <i class="fa fa-sign-out account-login"></i>&nbsp;Se déconnecter
-      </a>
+      <div *ngIf="isLoggedIn()" class="user-info">
+        <img class="user-picture" [src]="picture()"/>&nbsp;{{userInfo()}}&nbsp;
+        <a class="banner-link" href="javascript:void(0)" (click)="logout()">
+          <i class="fa fa-sign-out account-login"></i>&nbsp;Se déconnecter
+        </a>
+      </div>
     </div>
   </div>
+
   <ul class="d-flex flex-row justify-content-space-around flex-wrap " role="list">
     <li class="d-flex">
       <a class="d-flex" role="listitem" routerLink="/home" routerLinkActive="active">Accueil</a>

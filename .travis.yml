@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "7"
+
+branches:
+  only:
+    - master
+
+script:
+  - npm install
+
+cache:
+  yarn: true
+  directories:
+  - node_modules
+
+notifications:
+  email:
+    - alexandre.lerat@gmail.com

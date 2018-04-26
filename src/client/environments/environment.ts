@@ -12,7 +12,7 @@ export const environment = {
       responseType: 'token id_token',
       audience: 'https://oi-blagnac.eu.auth0.com/userinfo',
       redirectUri: 'http://localhost:4200',
-      scope: 'openid'
+      scope: 'openid profile'
     },
     logout: {
       clientID: '8VEIyy6btqL2gX16I2IcOdo4OM5ArCii',
