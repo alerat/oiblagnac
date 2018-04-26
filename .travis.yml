@@ -16,7 +16,7 @@ jobs:
   include:
   - stage: test
     script: npm run lint
-  - build:
+  - stage: build
     script: npm run build
 
 cache:
