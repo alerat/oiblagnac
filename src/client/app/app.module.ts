@@ -8,7 +8,6 @@ import {MaterielsService} from './oi-blagnac/services/materiels.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {PhotoMensuelleService} from './oi-blagnac/services/photo-mensuelle.service';
 import {HttpClientModule} from '@angular/common/http';
-import {HttpModule} from '@angular/http';
 import {PhotoGalleryService} from './oi-blagnac/services/gallery.service';
 import {AuthService} from './oi-blagnac/auth/auth.service';
 
@@ -26,9 +25,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
-    HttpClientModule,
-    HttpModule
-
+    HttpClientModule
   ],
   providers: [
     ActualiteService,

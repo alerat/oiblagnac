@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Photo } from '../model/photo';
-import { Gallery } from '../model/gallery';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Gallery} from '../model/gallery';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/distinct';
-import { RequestOptions } from '@angular/http';
+
 @Injectable()
 export class PhotoGalleryService {
   private dataStore: {
