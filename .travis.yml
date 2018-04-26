@@ -6,8 +6,13 @@ branches:
   only:
     - master
 
-script:
+install:
   - npm install
+
+before_script:
+  - npm install -g angular-cli
+  - npm install
+  - ng build
 
 cache:
   yarn: true
