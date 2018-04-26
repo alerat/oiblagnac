@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('oi-blagnac App', () => {
+describe('test-cli-new App', () => {
   let page: AppPage;
 
   beforeEach(() => {

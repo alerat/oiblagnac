@@ -31,6 +31,7 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
 /typings
 
@@ -41,6 +42,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/package-lock.json
-oi-blagnac2.rar
-assets/
