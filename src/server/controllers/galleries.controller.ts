@@ -17,6 +17,10 @@ const FLICK_GET_PHOTOS_URL = FLICKR_URL + '?' + [
   FLICKR_JSON_PARAMS,
   FLCKR_GET_PHOTOS_EXTRAS].join('&');
 
+/**
+ * Récupération d'un ensemble de photos depuis un album Flickr.
+ * On récupère l'url de les images miniature et originale
+ */
 router.route('').get((req: Request, res: Response) => {
   https.get(FLICK_GET_PHOTOS_URL, resp => {
     let data: any = '';
@@ -42,12 +46,8 @@ router.route('').get((req: Request, res: Response) => {
 
   }).on('error', err => {
     console.log('Error: ' + err.message);
+    res.send([]);
   });
 });
-
-
-function getPhotos() {
-
-}
 
 export const GalleriesController: Router = router;
