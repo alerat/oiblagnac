@@ -4,18 +4,19 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm-run-all -l -p serve-build serve-node",
-    "frontend": "ng serve -o --proxy-config proxy.node.conf.json   ",
-    "backend": "nodemon --watch src/server/**/*.ts --ext ts --exec ts-node --project src/server src/server/app.ts ",
+    "start": "ts-node --project src/server src/server/app.ts",
+    "frontend": "ng serve -o --proxy-config proxy.node.conf.json",
+    "backend": "nodemon --watch src/server/**/*.ts --ext ts --exec ts-node --project src/server src/server/app.ts",
     "serve": "npm-run-all -l -p frontend backend ",
-    "serve-build": "ng build --aot --prod -o --proxy-config proxy.conf.json",
+    "serve-build": "ng build --prod",
     "serve-node": "ts-node --project src/server src/server/app.ts",
     "serve-proxy": "ng serve -o --proxy-config proxy.conf.json",
-    "build": "ng build --prod --proxy-config proxy.conf.json",
+    "build": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "debug": "ts-node  --nolazy --inspect-brk=9229 --project src/server src/server/app.ts "
+    "debug": "ts-node  --nolazy --inspect-brk=9229 --project src/server src/server/app.ts",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
