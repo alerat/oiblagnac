@@ -30,7 +30,7 @@ describe('AccueilComponent', () => {
       'type': 'photo_du_mois',
       '__v': 3
     }];
-    const photoMensuelleServiceStub = jasmine.createSpyObj('PhotoMensuelleService', ['getPhotoMensuelles'])
+    const photoMensuelleServiceStub = jasmine.createSpyObj('PhotoMensuelleService', ['getPhotoMensuelles']);
     const getPhotoMensuellesSpy = photoMensuelleServiceStub.getPhotoMensuelles.and.returnValue(of(photosMensuelles));
 
     TestBed.configureTestingModule({
