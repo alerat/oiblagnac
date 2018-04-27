@@ -1,12 +1,12 @@
-import { PhotoMensuelleService } from './../services/photo-mensuelle.service';
-import { Materiel } from './../model/materiel';
-import { Actualite } from './../model/actualite';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActualiteService } from '../services/actualite.service';
-import { MaterielsService } from '../services/materiels.service';
-import { Photo } from '../model/photo';
-import { Observable } from 'rxjs/Observable';
-import { Gallery } from '../model/gallery';
+import {Component, OnInit} from '@angular/core';
+import {ActualiteService} from '../services/actualite.service';
+import {MaterielsService} from '../services/materiels.service';
+import {Photo} from '../model/photo';
+import {Observable} from 'rxjs/Observable';
+import {Gallery} from '../model/gallery';
+import {Actualite} from '../model/actualite';
+import {Materiel} from '../model/materiel';
+import {PhotoMensuelleService} from '../services/photo-mensuelle.service';
 
 @Component({
   selector: 'app-accueil',
@@ -18,9 +18,10 @@ export class AccueilComponent implements OnInit {
   actualites: Actualite[];
   materiels: Materiel[];
   photoMensuelles: Array<Photo> = [];
+
   constructor(private actuService: ActualiteService,
-    private materielsService: MaterielsService,
-    private photoMensuelleService: PhotoMensuelleService) {
+              private materielsService: MaterielsService,
+              private photoMensuelleService: PhotoMensuelleService) {
   }
 
   ngOnInit() {

@@ -112,8 +112,8 @@ export class ActualiteService {
     )];
 
     this.dataStore = {
-      'actualitePhoto': actuPhoto,
-      'actualiteVideo': actuVideo
+      actualitePhoto: actuPhoto,
+      actualiteVideo: actuVideo
     };
   }
 }

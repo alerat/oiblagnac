@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "7"
+  - "9"
 
 branches:
   only:
@@ -9,13 +9,23 @@ branches:
 install:
   - npm install
 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 before_script:
   - npm install -g @angular/cli
+  - export CHROME_BIN=chromium-browser
 
 jobs:
   include:
   - stage: test
     script: npm run lint
+  - stage:
+    script: xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
   - stage: build
     script: npm run build
 
@@ -27,4 +37,3 @@ cache:
 notifications:
   email:
     - alexandre.lerat@gmail.com
-    - r.olvera@laposte.net

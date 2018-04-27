@@ -1,12 +1,17 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { SecuredGuard } from './secured.guard';
+import {SecuredGuard} from './secured.guard';
+import {AuthService} from '../auth/auth.service';
+import {Router} from '@angular/router';
 
 describe('SecuredGuard', () => {
+
   beforeEach(() => {
+    const router = jasmine.createSpyObj('Router', ['navigate']);
     TestBed.configureTestingModule({
-      providers: [SecuredGuard]
-    });
+      providers: [SecuredGuard, AuthService, {provide: Router, useValue: router}]
+    })
+    ;
   });
 
   it('should ...', inject([SecuredGuard], (guard: SecuredGuard) => {
