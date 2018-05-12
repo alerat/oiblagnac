@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActualiteService} from '../services/actualite.service';
 import {MaterielsService} from '../services/materiels.service';
 import {Photo} from '../model/photo';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Gallery} from '../model/gallery';
 import {Actualite} from '../model/actualite';
 import {Materiel} from '../model/materiel';

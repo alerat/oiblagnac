@@ -4,9 +4,9 @@ import {Gallery} from '../../model/gallery';
 import * as  moment from 'moment';
 
 
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
+import {Subject} from 'rxjs';
+
+
 import {PhotoGalleryService} from '../../services/gallery.service';
 
 

@@ -1,7 +1,4 @@
 import {Injectable} from '@angular/core';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
 import {Auth0DecodedHash, Auth0UserProfile, WebAuth} from 'auth0-js';
 import {environment} from '../../../environments/environment';
 

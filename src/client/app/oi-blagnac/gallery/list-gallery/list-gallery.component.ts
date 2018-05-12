@@ -2,9 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {PhotoGalleryService} from '../../services/gallery.service';
 import {Gallery} from '../../model/gallery';
-import {Observable} from 'rxjs/Observable';
+import {Observable, of} from 'rxjs';
 import {TypeGallery} from '../../model/typeGallery';
-import 'rxjs/add/observable/of';
+
 
 @Component({
   selector: 'app-list-gallery',
@@ -64,7 +64,7 @@ export class ListGalleryComponent implements OnInit, OnDestroy {
         });
       }
       this.initPaginationMenuGallery(galleries);
-      this.galeriesMenu = Observable.of(galleries);
+      this.galeriesMenu = of(galleries);
       const navigationExtras: NavigationExtras = {
         queryParams: {'page': this.pageCurrente, 'typeGallery': this.typeGallery, 'id': this.numeroGallery}
       };

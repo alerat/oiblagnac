@@ -2,7 +2,7 @@ import { Gallery } from './../model/gallery';
 import { Injectable } from '@angular/core';
 import { Photo } from '../model/photo';
 import { PhotoGalleryService } from './gallery.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class PhotoMensuelleService {

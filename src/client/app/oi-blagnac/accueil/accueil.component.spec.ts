@@ -5,7 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ActualiteService} from '../services/actualite.service';
 import {MaterielsService} from '../services/materiels.service';
 import {PhotoMensuelleService} from '../services/photo-mensuelle.service';
-import {of} from 'rxjs/observable/of';
+import {of} from 'rxjs';
 
 describe('AccueilComponent', () => {
   let component: AccueilComponent;

@@ -77,3 +77,5 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// FIXME - Hack pour faire fonctionner Auth0 avec Angular 6 - https://github.com/auth0/auth0.js/issues/753
+(window as any).global = window;

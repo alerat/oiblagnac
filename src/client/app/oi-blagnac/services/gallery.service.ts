@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Gallery} from '../model/gallery';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/distinct';
+import {Observable} from 'rxjs';
+
+
+
 
 @Injectable()
 export class PhotoGalleryService {
