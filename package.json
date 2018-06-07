@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ts-node --project src/server src/server/app.ts",
     "frontend": "ng serve -o --proxy-config proxy.node.conf.json",
-    "backend": "ts-node-dev --project src/server/tsconfig.json src/server/app.ts",
+    "backend": "ts-node-dev --transpileOnly --project src/server/tsconfig.json src/server/app.ts",
     "serve": "npm-run-all -l -p frontend backend ",
     "serve-build": "ng build --prod",
     "serve-node": "ts-node --project src/server src/server/app.ts",
