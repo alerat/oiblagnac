@@ -1,5 +1,5 @@
 import {Request, Response, Router} from 'express';
-import * as https from 'https';
+import {themeService} from '../services/galleries.service';
 
 const router: Router = Router();
 const FLICKR_URL = 'https://api.flickr.com/services/rest/';
@@ -18,35 +18,41 @@ const FLICK_GET_PHOTOS_URL = FLICKR_URL + '?' + [
   FLCKR_GET_PHOTOS_EXTRAS].join('&');
 
 /**
- * Récupération d'un ensemble de photos depuis un album Flickr.
- * On récupère l'url de les images miniature et originale
+ * Récupération du menu des thèmes et galleries.
  */
-router.route('').get((req: Request, res: Response) => {
-  console.log(FLICK_GET_PHOTOS_URL);
-  https.get(FLICK_GET_PHOTOS_URL, resp => {
-    let data: any = '';
+router.route('/menu').get((req: Request, res: Response) => {
+  //
 
-    resp.on('data', (chunk) => {
-      data += chunk;
-    });
-
-    resp.on('end', () => {
-      data = JSON.parse(data);
-      const photos = data.photoset.photo;
-      const tab = photos.map(photo => {
-        return {
-          mini: photo.url_m,
-          orig: photo.url_o,
-          title: photo.title
-        };
-      });
-      res.send(tab);
-    });
-
-  }).on('error', err => {
-    console.log('Error: ' + err.message);
-    res.send([]);
+  themeService.constructMenu().subscribe(galleries => {
+    console.log(galleries);
   });
+  res.status(200).send({});
+  /*
+
+    https.get(FLICK_GET_PHOTOS_URL, resp => {
+      let data: any = '';
+
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      resp.on('end', () => {
+        data = JSON.parse(data);
+        const photos = data.photoset.photo;
+        const tab = photos.map(photo => {
+          return {
+            mini: photo.url_m,
+            orig: photo.url_o,
+            title: photo.title
+          };
+        });
+        res.send(tab);
+      });
+
+    }).on('error', err => {
+      console.log('Error: ' + err.message);
+      res.send([]);
+    });*/
 });
 
 export const GalleriesController: Router = router;

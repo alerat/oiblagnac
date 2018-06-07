@@ -1,4 +1,3 @@
-'use strict';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as compress from 'compression';
@@ -7,7 +6,6 @@ import * as logger from 'morgan';
 import * as expressValidator from 'express-validator';
 import {ErrorHandler} from './utils/ErrorHandler';
 import {SampleSecurityController} from './controllers/SampleSecurityController';
-import {GalleryController} from './controllers/GalleryController';
 import * as BaseMongoDB from './base/BaseMongoDB';
 import {GalleriesController} from './controllers/galleries.controller';
 
@@ -35,7 +33,7 @@ app.use(session({
   secret: 'secure label for security'
 }));
 
-app.use(api + 'galleries', GalleryController);
+// app.use(api + 'galleries', GalleryController);
 app.use('/sample', SampleSecurityController);
 app.use(apiPublic + 'galleries', GalleriesController);
 
