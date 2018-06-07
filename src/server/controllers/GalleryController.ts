@@ -13,7 +13,7 @@ const api = '/api/';
 const apiPrivate = api + 'private/';
 const data = '../data/';
 
-const router: Router = new Router();
+const router: Router = Router();
 
 router.route('/').get(function(req, res) {
   console.log('route /galleries/');

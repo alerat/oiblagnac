@@ -27,10 +27,6 @@ const gallerySchema = new Schema({
         type: String,
         required: true
     },
-    photos: {
-        type: [Schema.Types.Photo],
-        required: true
-    },
     annee: {
         type: Number,
         required: true

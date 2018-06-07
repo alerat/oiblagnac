@@ -29,7 +29,7 @@ app.use(compress());
 app.use(logger('dev'));
 app.use(errorHandler.init);
 app.use(session({
-  key: 'JSESSIONID',
+  cookie: {secure: true},
   saveUninitialized: false,
   resave: false,
   secret: 'secure label for security'
