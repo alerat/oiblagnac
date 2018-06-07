@@ -10,6 +10,7 @@ import {PhotoMensuelleService} from './oi-blagnac/services/photo-mensuelle.servi
 import {HttpClientModule} from '@angular/common/http';
 import {PhotoGalleryService} from './oi-blagnac/services/gallery.service';
 import {AuthService} from './oi-blagnac/auth/auth.service';
+import {GalleriesService} from './oi-blagnac/services/galleries.service';
 
 const routes: Routes = [
   {path: '', loadChildren: './oi-blagnac/oi-blagnac.module#OiBlagnacModule'},
@@ -32,6 +33,7 @@ const routes: Routes = [
     MaterielsService,
     PhotoMensuelleService,
     PhotoGalleryService,
+    GalleriesService,
     AuthService
   ],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import {Request, Response, Router} from 'express';
-import {themeService} from '../services/galleries.service';
+import {galleriesService} from '../services/galleries.service';
 
 const router: Router = Router();
 const FLICKR_URL = 'https://api.flickr.com/services/rest/';
@@ -23,10 +23,10 @@ const FLICK_GET_PHOTOS_URL = FLICKR_URL + '?' + [
 router.route('/menu').get((req: Request, res: Response) => {
   //
 
-  themeService.constructMenu().subscribe(galleries => {
-    console.log(galleries);
+  galleriesService.constructMenu().subscribe(galleries => {
+    res.status(200).send(galleries);
   });
-  res.status(200).send({});
+
   /*
 
     https.get(FLICK_GET_PHOTOS_URL, resp => {

@@ -22,7 +22,7 @@ const routes: Routes = [
       {path: 'concours', component: ConcoursComponent},
       {path: 'telechargements', component: TelechargementComponent},
       {path: 'liens', component: LiensComponent},
-      {path: 'list-gallery', loadChildren: './gallery/gallery.module#GalleryModule'},
+      {path: 'galleries', loadChildren: './galleries/galleries.module#GalleriesModule'},
       {path: 'form', component: GalleryFormComponent},
       {path: 'secured', loadChildren: './secured/secured.module#SecuredModule'},
     ]
